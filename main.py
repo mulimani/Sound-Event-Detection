@@ -42,13 +42,6 @@ __class_labels_dict = {
     'people walking': 5
 }
 
-__class_labels_list = [
-    'brakes squeaking',
-    'car',
-    'children',
-    'large vehicle',
-    'people speaking',
-    'people walking']
 # Development and evaluation sets paths
 development_folder = 'dataset/SED_2017_street/TUT-sound-events-2017-development/'
 evaluation_folder = 'dataset/SED_2017_street/TUT-sound-events-2017-evaluation/'
@@ -96,12 +89,12 @@ def evaluate(model, test_loader):
         target_list.extend(target.view(-1, target.size(2)).cpu().detach().numpy())
 
     segment_based_metrics = sed_eval.sound_event.SegmentBasedMetrics(
-        event_label_list=__class_labels_list,
+        event_label_list=list(__class_labels_dict.keys()),
         time_resolution=1.0
     )
 
     output, test_ER, test_F1, class_wise_metrics = get_SED_results(np.array(target_list), np.array(preds_list),
-                                                                   __class_labels_list, segment_based_metrics,
+                                                                   list(__class_labels_dict.keys()), segment_based_metrics,
                                                                    threshold=0.5,
                                                                    hop_size=config.hop_len, sample_rate=config.sr)
     print(output)
