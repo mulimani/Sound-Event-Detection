@@ -16,3 +16,7 @@ This repo contains the simple code for [Sound Event Detection](https://dcase.com
 1. Install the requirements: pip install -r requirements.txt
 2. Download the DCASE 2017 Task3 [development](https://zenodo.org/records/814831) and [evaluation](https://zenodo.org/records/1040179) datasets into  dataset/SED_2017_street folder.
 3. Run experiment: python main.py --epoch 120 --batch-size 64 --num-workers 4
+
+### Acknowledgement 
+
+This code is built on [dcase_util](https://github.com/DCASE-REPO/dcase_util) toolbox
