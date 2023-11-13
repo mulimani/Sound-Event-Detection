@@ -17,6 +17,14 @@ This repo contains the simple code for [Sound Event Detection](https://dcase.com
 2. Download the DCASE 2017 Task3 [development](https://zenodo.org/records/814831) and [evaluation](https://zenodo.org/records/1040179) datasets into  dataset/SED_2017_street folder.
 3. Run experiment: python main.py --epoch 120 --batch-size 64 --num-workers 4
 
+### Another way: Run as a Docker container
+
+1. Download and install [Docker desktop](https://www.docker.com/products/docker-desktop/)
+2. Build Docker image using Dockerfile by running command on terminal: docker build -t sed_model .
+3. Run the Docker image:  docker run sed_model
+4. Create a conda activated interactive terminal to run main.py with different arguements as: docker run -ti sed_model bash \
+   Then run: python main.py --epoch 120 --batch-size 64 --num-workers 4
 ### Acknowledgement 
 
 This code is built on [dcase_util](https://github.com/DCASE-REPO/dcase_util) toolbox
+
